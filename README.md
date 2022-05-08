@@ -1,1 +1,1 @@
-# p5-sketches
+Exploring creative coding with p5.js
