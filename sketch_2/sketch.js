@@ -10,7 +10,7 @@ let heroX = 0;
 let heroY = canvasHeight / 2;
 let heroWidth = rectSide;
 let heroHeight = rectSide;
-let heroSpeed = 1;
+let heroSpeed = 2;
 let foodX = 0;
 let foodY = 0;
 let thyFoodConsumed = false;
@@ -34,17 +34,19 @@ function draw() {
     foodX = randX - randX % 1; //Yeah, I know
     foodY = canvasHeight / 2;
   }
-
-  if (!thyFoodConsumed) {
-    rect(foodX, foodY, rectSide); 
-  }
   
   heroX = heroX + heroSpeed;
-  
-  if(heroX == foodX) {
+
+  let isIntersects = (heroX >= foodX) && (heroX <= foodX + rectSide);
+
+  if(isIntersects && !thyFoodConsumed) {
     thyFoodConsumed = true;
     heroWidth = heroWidth + rectSide
   }
 
   rect(heroX, heroY, heroWidth, heroHeight);
+
+  if (!thyFoodConsumed) {
+    rect(foodX, foodY, rectSide); 
+  }
 }
