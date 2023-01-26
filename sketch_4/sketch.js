@@ -1,21 +1,22 @@
-//Random Walker
+//Fireflies [based on Random Walker]
 
-const canvasWidth = 400;
-const canvasHeight = 400;
+const canvasWidth = 1024;
+const canvasHeight = 768;
 
 function setup() {
   createCanvas(canvasWidth, canvasHeight);
-  background(0);
   frameRate(60);
 
-  wGreen = new Walker(canvasHeight / 2, canvasWidth / 2, new Color(255, 244, 0));
-  wYellow = new Walker(canvasHeight / 2 - 100 , canvasWidth / 2 + 100, new Color(0, 255, 0));
-  wRed = new Walker(canvasHeight / 2 + 100 , canvasWidth / 2 - 100, new Color(255, 0, 0));
+  walkers = [];
 
-  walkers = [wGreen, wYellow, wRed];
+  for (let i = 0; i < 100; i++) {
+    color = new Color(200, 200, 160);
+    walkers.push(new Walker(random(0, canvasWidth), random(0, canvasHeight), color));
+  }
 }
 
 function draw() {
+  background(0, 0, 30);
   walkers.forEach(w => {
     w.step();
     w.render();
@@ -37,7 +38,7 @@ class Walker {
   render() {
     point(this.x, this.y);
     stroke(this.color.r, this.color.g, this.color.b);
-    strokeWeight(3);
+    strokeWeight(5);
   }
 }
 
