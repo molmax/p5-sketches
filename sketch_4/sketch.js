@@ -7,23 +7,23 @@ function setup() {
   createCanvas(canvasWidth, canvasHeight);
   frameRate(60);
 
-  walkers = [];
+  fireflies = [];
+  let color = new Color(200, 200, 160);
 
   for (let i = 0; i < 100; i++) {
-    color = new Color(200, 200, 160);
-    walkers.push(new Walker(random(0, canvasWidth), random(0, canvasHeight), color));
+    fireflies.push(new Firefly(random(0, canvasWidth), random(0, canvasHeight), color));
   }
 }
 
 function draw() {
   background(0, 0, 30);
-  walkers.forEach(w => {
-    w.step();
-    w.render();
+  fireflies.forEach(ff => {
+    ff.step();
+    ff.render();
   });
 }
 
-class Walker {
+class Firefly {
   constructor(x, y, color) {
     this.x = x;
     this.y = y;
