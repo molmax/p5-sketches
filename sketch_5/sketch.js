@@ -12,7 +12,7 @@ function setup() {
 function draw() {
   let meanX = random(10, canvasWidth - 10);
   let meanY = random(10, canvasHeight - 10);
-  let sd = random(5, 20)  ;
+  let sd = random(5, 20);
 
   let r = randomGaussian(220, 30);
   let g = randomGaussian(10, 10);
