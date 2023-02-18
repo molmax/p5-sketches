@@ -10,7 +10,7 @@ function setup() {
 
 function draw() {
   sqSide = canvasWidth / 50;  
-  //O(n^2) complexity works awful on bigger canvas
+  //O(n^2) complexity works awful on relatively small squares 
   for (let x = 0; x < canvasWidth; x += sqSide) {
     for (let y = 0; y < canvasHeight; y += sqSide) {
       r = random(0, 255);
